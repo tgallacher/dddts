@@ -1,20 +1,23 @@
 import { v4 as uuid } from "uuid";
 import { describe, expect, it } from "vitest";
 import {
+	AbstractEntity,
 	type BuildEntityInterface,
-	Entity,
-	type IEntity,
-	type TEntityCore,
+	type TEntity,
 } from "./entity";
 
-class UserEntity extends Entity<{ name: string; email: string; id?: string }> {}
-class ProductEntity extends Entity<{
+class UserEntity extends AbstractEntity<{
+	name: string;
+	email: string;
+	id?: string;
+}> {}
+class ProductEntity extends AbstractEntity<{
 	title: string;
 	price: number;
 	id?: string;
 }> {}
-class SimpleEntity extends Entity<{ value: string; id?: string }> {}
-class ComplexEntity extends Entity<{
+class SimpleEntity extends AbstractEntity<{ value: string; id?: string }> {}
+class ComplexEntity extends AbstractEntity<{
 	nested: { prop: string };
 	array: number[];
 	id?: string;
@@ -140,47 +143,9 @@ describe("Entity", () => {
 		});
 	});
 
-	describe("isEntity utility function", () => {
-		it("should return true for valid entity instances", () => {
-			const entity = new UserEntity({ name: "John", email: "john@test.com" });
-
-			// Access the isEntity function via module internals for testing
-			const isEntityTest = (v: unknown): v is Entity => v instanceof Entity;
-			expect(isEntityTest(entity)).toBe(true);
-		});
-
-		it("should return false for plain objects", () => {
-			const plainObject = { id: uuid(), name: "John" };
-
-			const isEntityTest = (v: unknown): v is Entity => v instanceof Entity;
-			expect(isEntityTest(plainObject)).toBe(false);
-		});
-
-		it("should return false for null and undefined", () => {
-			const isEntityTest = (v: unknown): v is Entity => v instanceof Entity;
-			expect(isEntityTest(null)).toBe(false);
-			expect(isEntityTest(undefined)).toBe(false);
-		});
-
-		it("should work with different entity types", () => {
-			const userEntity = new UserEntity({
-				name: "John",
-				email: "john@test.com",
-			});
-			const productEntity = new ProductEntity({
-				title: "Product",
-				price: 99.99,
-			});
-
-			const isEntityTest = (v: unknown): v is Entity => v instanceof Entity;
-			expect(isEntityTest(userEntity)).toBe(true);
-			expect(isEntityTest(productEntity)).toBe(true);
-		});
-	});
-
 	describe("Interface compliance", () => {
 		it("should implement IEntity interface", () => {
-			const entity: IEntity = new UserEntity({
+			const entity: AbstractEntity = new UserEntity({
 				name: "John",
 				email: "john@test.com",
 			});
@@ -192,7 +157,7 @@ describe("Entity", () => {
 
 		it("should work with generic type constraints", () => {
 			const userData = { name: "John", email: "john@test.com" };
-			const entity: Entity<typeof userData & TEntityCore> = new UserEntity(
+			const entity: AbstractEntity<typeof userData & TEntity> = new UserEntity(
 				userData,
 			);
 
@@ -208,7 +173,7 @@ describe("Entity", () => {
 				}> {}
 
 			class TestEntity
-				extends Entity<{ name: string; email: string }>
+				extends AbstractEntity<{ name: string; email: string }>
 				implements TestEntityInterface
 			{
 				getName(): string {
