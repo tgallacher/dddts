@@ -31,8 +31,9 @@ export class DomainEventsBroker {
 			const eventName = event.constructor.name;
 
 			DomainEventsBroker.eventHandlers.get(eventName)?.forEach((handle) => {
-				// eslint-disable-next-line no-void
-				void handle(event);
+				try {
+					void handle(event);
+				} catch (error) {}
 			});
 		});
 	}

@@ -1,4 +1,4 @@
-// import { DomainEventsBroker } from './domain-events-broker';
+import { DomainEventsBroker } from './domain-events-broker';
 import type { DomainEvent } from "./domain-event";
 import { AbstractEntity, type Entity, type TEntity } from "./entity";
 
