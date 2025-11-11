@@ -1,0 +1,5 @@
+src/
+AGENTS.md
+vite*
+.prettierrc*
+*.tgz
