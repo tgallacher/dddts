@@ -1,4 +1,4 @@
-# ddd-typescript
+# dddts
 
 TypeScript building blocks for Domain-Driven Design (DDD) tactical patterns.
 
