@@ -1,10 +1,19 @@
 {
   "name": "dddts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Domain driven design building blocks",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
+  "author": "Tom Gallacher",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgallacher/dddts.git"
+  },
+  "homepage": "https://github.com/tgallacher/dddts#readme",
+  "bugs": {
+    "url": "https://github.com/tgallacher/dddts/issues"
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest",
@@ -12,9 +21,15 @@
     "typecheck": "tsc --noEmit",
     "dev": "vite build --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ddd",
+    "domain-driven-design",
+    "typescript",
+    "entity",
+    "value-object",
+    "aggregate"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.5.0",
     "prettier": "^3.6.2",
