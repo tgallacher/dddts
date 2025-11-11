@@ -1,6 +1,6 @@
 {
   "name": "dddts",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Domain driven design building blocks",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
