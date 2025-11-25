@@ -57,4 +57,4 @@ export abstract class AbstractEntity<T extends TEntity = TEntity>
  *
  * This allows you to depend on an abstraction over a concretion.
  */
-export type BuildEntityInterface<T> = Entity & Exclude<T, "TEntityCore">;
+export type BuildEntityInterface<T> = Entity & Exclude<T, "TEntity">;
