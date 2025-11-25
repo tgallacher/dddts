@@ -8,11 +8,11 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tgallacher/dddts.git"
+    "url": "git+https://github.com/tgallacher/ddd-ts.git"
   },
-  "homepage": "https://github.com/tgallacher/dddts#readme",
+  "homepage": "https://github.com/tgallacher/ddd-ts#readme",
   "bugs": {
-    "url": "https://github.com/tgallacher/dddts/issues"
+    "url": "https://github.com/tgallacher/ddd-ts/issues"
   },
   "scripts": {
     "build": "vite build",
