@@ -18,7 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "rimraf dist && vite build && tsc --emitDeclarationOnly --outDir dist",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^24.5.0",
     "prettier": "^3.6.2",
+    "rimraf": "^6.1.2",
     "typescript": "^5.9.2",
     "vite": "^7.1.5",
     "vitest": "^3.2.4"
