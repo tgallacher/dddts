@@ -1,5 +1,5 @@
 {
-  "name": "dddts",
+  "name": "@tgallacher/ddd-ts",
   "version": "0.0.0",
   "description": "Domain driven design building blocks",
   "main": "dist/index.js",
